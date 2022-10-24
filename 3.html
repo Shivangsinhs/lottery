@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment  03 220018772 </title>
+</head>
+<body>
+  <script>
+    // generating 3 random numbers between 1-59
+    var random_number1, random_number2, random_number3;
+
+    random_number1 = Math.floor(Math.random() * (59 - 1 + 1)) + 1;
+
+    while(true) {
+      random_number2 = Math.floor(Math.random() * (59 - 1 + 1)) + 1;
+      if(random_number1 != random_number2) {
+        break;
+      }
+    }
+
+    while(true) {
+      random_number3 = Math.floor(Math.random() * (59 - 1 + 1)) + 1;
+      if(random_number1 != random_number3 && random_number2 != random_number3) {
+        break;
+      }
+    }
+    var computerGeneratedNumbersLine = 'Computer generated are: ' + random_number1  + ' ' + random_number2 + ' ' + random_number3;// showing computer generated numbers
+    // taking 3 numbers as inputs from the user
+    var userInpNum1 = prompt('Enter number 01');
+    var userInpNum2 = prompt('Enter number 02');
+    var userInpNum3 = prompt('Enter number 03');
+   
+    // checking all  5 conditions
+    if(random_number1 == userInpNum1 && random_number2 == userInpNum2 && random_number3 == userInpNum3) {
+      alert('You win the jackpot!\n' + computerGeneratedNumbersLine);
+    } else if((random_number1 == userInpNum1 || random_number1 == userInpNum2 || random_number1 == userInpNum3) && (random_number2 == userInpNum1 || random_number2 == userInpNum2 || random_number2 == userInpNum3) && (random_number3 == userInpNum1 || random_number3 == userInpNum2 || random_number3 == userInpNum3)) {
+      alert('Congratulations, you win the first prize!\n' + computerGeneratedNumbersLine); // alert if all number matched
+    } else if(((random_number1 == userInpNum1 || random_number1 == userInpNum2 || random_number1 == userInpNum3) && (random_number2 == userInpNum1 || random_number2 == userInpNum2 || random_number2 == userInpNum3)) || ((random_number1 == userInpNum1 || random_number1 == userInpNum2 || random_number1 == userInpNum3) && (random_number3 == userInpNum1 || random_number3 == userInpNum2 || random_number3 == userInpNum3)) || ((random_number2 == userInpNum1 || random_number2 == userInpNum2 || random_number2 == userInpNum3) && (random_number3 == userInpNum1 || random_number3 == userInpNum2 || random_number3 == userInpNum3))) {
+      alert('You win the second prize!\n' + computerGeneratedNumbersLine);// alert if two number matched
+    } else if(random_number1 == userInpNum1 || random_number1 == userInpNum2 || random_number1 == userInpNum3 || random_number2 == userInpNum1 || random_number2 == userInpNum2 || random_number2 == userInpNum3 || random_number3 == userInpNum1 || random_number3 == userInpNum2 || random_number3 == userInpNum3) {
+      alert('You win the third prize!\n' + computerGeneratedNumbersLine); // alert if one number matched
+    } else {
+      alert('Sorry, you didn\'t win this time!\n' + computerGeneratedNumbersLine);// alert if none number matched
+    }
+  </script>
+</body>
+</html>
